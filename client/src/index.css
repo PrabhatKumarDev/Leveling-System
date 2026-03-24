@@ -1,0 +1,284 @@
+@import 'tailwindcss';
+/* @import 'tw-animate-css'; */
+* {
+  
+}
+@layer base{
+  body{
+    margin: 0;
+    padding: 0;
+    
+  }
+}
+@custom-variant dark (&:is(.dark *));
+
+/* Solo Leveling Dark Theme - Always Dark */
+:root {
+  /* Deep dark backgrounds */
+  --background: oklch(0.08 0.01 260);
+  --foreground: oklch(0.95 0 0);
+  
+  /* Card with subtle blue tint */
+  --card: oklch(0.12 0.015 260);
+  --card-foreground: oklch(0.95 0 0);
+  
+  /* Popover */
+  --popover: oklch(0.1 0.015 260);
+  --popover-foreground: oklch(0.95 0 0);
+  
+  /* Primary - Solo Leveling Electric Blue */
+  --primary: oklch(0.65 0.2 250);
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Secondary - Darker blue-gray */
+  --secondary: oklch(0.2 0.02 260);
+  --secondary-foreground: oklch(0.9 0 0);
+  
+  /* Muted */
+  --muted: oklch(0.18 0.015 260);
+  --muted-foreground: oklch(0.6 0.01 260);
+  
+  /* Accent - Cyan glow */
+  --accent: oklch(0.7 0.15 220);
+  --accent-foreground: oklch(0.1 0.01 260);
+  
+  /* Destructive - Red for penalties */
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Borders */
+  --border: oklch(0.25 0.03 260);
+  --input: oklch(0.2 0.02 260);
+  --ring: oklch(0.65 0.2 250);
+  
+  /* Chart colors - RPG themed */
+  --chart-1: oklch(0.65 0.2 250);
+  --chart-2: oklch(0.75 0.18 85);
+  --chart-3: oklch(0.65 0.2 145);
+  --chart-4: oklch(0.6 0.22 300);
+  --chart-5: oklch(0.6 0.25 25);
+  
+  --radius: 0.5rem;
+  
+  /* Sidebar */
+  --sidebar: oklch(0.1 0.015 260);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-primary: oklch(0.65 0.2 250);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.2 0.03 260);
+  --sidebar-accent-foreground: oklch(0.9 0 0);
+  --sidebar-border: oklch(0.25 0.03 260);
+  --sidebar-ring: oklch(0.65 0.2 250);
+}
+
+.dark {
+  /* Keep same as root - always dark theme */
+  --background: oklch(0.08 0.01 260);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.12 0.015 260);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.1 0.015 260);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.65 0.2 250);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.2 0.02 260);
+  --secondary-foreground: oklch(0.9 0 0);
+  --muted: oklch(0.18 0.015 260);
+  --muted-foreground: oklch(0.6 0.01 260);
+  --accent: oklch(0.7 0.15 220);
+  --accent-foreground: oklch(0.1 0.01 260);
+  --destructive: oklch(0.55 0.25 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.25 0.03 260);
+  --input: oklch(0.2 0.02 260);
+  --ring: oklch(0.65 0.2 250);
+  --chart-1: oklch(0.65 0.2 250);
+  --chart-2: oklch(0.75 0.18 85);
+  --chart-3: oklch(0.65 0.2 145);
+  --chart-4: oklch(0.6 0.22 300);
+  --chart-5: oklch(0.6 0.25 25);
+  --sidebar: oklch(0.1 0.015 260);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-primary: oklch(0.65 0.2 250);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.2 0.03 260);
+  --sidebar-accent-foreground: oklch(0.9 0 0);
+  --sidebar-border: oklch(0.25 0.03 260);
+  --sidebar-ring: oklch(0.65 0.2 250);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Solo Leveling System UI Effects */
+@layer utilities {
+  .system-glow {
+    box-shadow: 0 0 20px oklch(0.65 0.2 250 / 0.3),
+                0 0 40px oklch(0.65 0.2 250 / 0.1),
+                inset 0 1px 0 oklch(1 0 0 / 0.1);
+  }
+  
+  .system-glow-strong {
+    box-shadow: 0 0 30px oklch(0.65 0.2 250 / 0.5),
+                0 0 60px oklch(0.65 0.2 250 / 0.2),
+                inset 0 1px 0 oklch(1 0 0 / 0.1);
+  }
+  
+  .gold-glow {
+    box-shadow: 0 0 20px oklch(0.75 0.18 85 / 0.4),
+                0 0 40px oklch(0.75 0.18 85 / 0.15);
+  }
+  
+  .xp-glow {
+    box-shadow: 0 0 20px oklch(0.6 0.22 300 / 0.4),
+                0 0 40px oklch(0.6 0.22 300 / 0.15);
+  }
+  
+  .danger-glow {
+    box-shadow: 0 0 20px oklch(0.55 0.25 25 / 0.4),
+                0 0 40px oklch(0.55 0.25 25 / 0.15);
+  }
+  
+  .system-border {
+    border: 1px solid oklch(0.65 0.2 250 / 0.5);
+    position: relative;
+  }
+  
+  .system-border::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, oklch(0.65 0.2 250 / 0.6), oklch(0.65 0.2 250 / 0.1));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  .system-text {
+    color: oklch(0.7 0.2 250);
+    text-shadow: 0 0 10px oklch(0.65 0.2 250 / 0.5);
+  }
+  
+  .gold-text {
+    color: oklch(0.8 0.18 85);
+    text-shadow: 0 0 10px oklch(0.75 0.18 85 / 0.5);
+  }
+  
+  .xp-text {
+    color: oklch(0.7 0.22 300);
+    text-shadow: 0 0 10px oklch(0.6 0.22 300 / 0.5);
+  }
+  
+  .success-text {
+    color: oklch(0.7 0.2 145);
+    text-shadow: 0 0 10px oklch(0.65 0.2 145 / 0.5);
+  }
+  
+  .danger-text {
+    color: oklch(0.65 0.25 25);
+    text-shadow: 0 0 10px oklch(0.55 0.25 25 / 0.5);
+  }
+  
+  /* Rank badge colors */
+  .rank-e { background: oklch(0.5 0.1 260); color: white; }
+  .rank-d { background: oklch(0.55 0.15 145); color: white; }
+  .rank-c { background: oklch(0.6 0.18 250); color: white; }
+  .rank-b { background: oklch(0.65 0.2 300); color: white; }
+  .rank-a { background: oklch(0.7 0.22 85); color: black; }
+  .rank-s { background: oklch(0.65 0.25 25); color: white; }
+  .rank-national { background: linear-gradient(135deg, oklch(0.65 0.25 25), oklch(0.75 0.18 85)); color: white; }
+  
+  /* XP Bar colors */
+  .xp-bar {
+    background: linear-gradient(90deg, oklch(0.6 0.22 300), oklch(0.65 0.2 250));
+  }
+  
+  /* Gold styling */
+  .gold-icon { color: oklch(0.75 0.18 85); }
+  .gold-border { border-color: oklch(0.75 0.18 85 / 0.3); }
+  
+  /* Success green */
+  .success-icon { color: oklch(0.65 0.2 145); }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px oklch(0.65 0.2 250 / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px oklch(0.65 0.2 250 / 0.6);
+    }
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+    background: linear-gradient(
+      90deg,
+      oklch(0.65 0.2 250 / 0) 0%,
+      oklch(0.65 0.2 250 / 0.3) 50%,
+      oklch(0.65 0.2 250 / 0) 100%
+    );
+    background-size: 200% 100%;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
