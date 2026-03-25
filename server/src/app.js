@@ -18,6 +18,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "https://leveling-system-roan.vercel.app",
   "http://localhost", // Capacitor Android
+  "https://localhost",
   "capacitor://localhost", // useful for some Capacitor cases
 ];
 
