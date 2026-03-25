@@ -93,9 +93,24 @@ const CreateHabitModal = ({ open, onClose, onCreate }) => {
   primaryStat: "DIS",
 });
   };
-
+ const getColorHex = (color) => {
+  switch (color) {
+    case "violet":
+      return "#8b5cf6"; // vibrant violet
+    case "emerald":
+      return "#10b981";
+    case "rose":
+      return "#f43f5e";
+    case "cyan":
+      return "#06b6d4";
+    case "amber":
+      return "#f59e0b";
+    default:
+      return "#8b5cf6";
+  }
+};
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-3">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-3 cursor-pointer select-none" >
       <div className="w-full max-w-lg rounded-2xl border border-white/10 bg-[#0b0f17] p-5">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="text-lg font-bold text-white">Create Habit</h2>
@@ -137,28 +152,38 @@ const CreateHabitModal = ({ open, onClose, onCreate }) => {
 </select>
 
           <div>
-            <p className="mb-2 text-sm text-zinc-300">Heatmap Color</p>
-            <div className="flex flex-wrap gap-2">
-              {habitColors.map((c) => (
-                <button
-                  type="button"
-                  key={c.value}
-                  onClick={() => setForm((p) => ({ ...p, color: c.value }))}
-                  className={`rounded-lg border px-3 py-2 text-sm ${
-                    form.color === c.value
-                      ? "border-white text-white"
-                      : "border-white/10 text-zinc-400"
-                  } ${colorMap[c.value].soft}`}
-                >
-                  {c.label}
-                </button>
-              ))}
-            </div>
+            <p className="mb-2 text-sm text-zinc-300 ">Heatmap Color</p>
+            <div className="flex gap-3">
+    {habitColors.map((c) => {
+      const isActive = form.color === c.value;
+
+      return (
+        <button
+          key={c.value}
+          type="button"
+          onClick={(e) => {
+  e.currentTarget.blur(); // removes focus
+  setForm((p) => ({ ...p, color: c.value }));
+}}
+          className={`
+  h-8 w-8 rounded-full transition-all duration-200
+  select-none cursor-pointer 
+  ${isActive 
+    ? "ring-2 ring-white scale-110 shadow-lg" 
+    : "opacity-80 hover:opacity-100 hover:scale-105"}
+`} 
+          style={{
+            backgroundColor: getColorHex(c.value),
+          }}
+         />
+      );
+    })}
+  </div>
           </div>
 
-          <button className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-white">
-            Create Habit
-          </button>
+          <button className="w-full rounded-xl bg-primary px-4 py-3 font-semibold text-white cursor-pointer select-none">
+  Create Habit
+</button>
         </form>
       </div>
     </div>
@@ -239,7 +264,7 @@ const Habits = () => {
       toast.error(error?.response?.data?.message || "Failed to complete habit");
     }
   };
-
+ 
   const habitHeatmap =
     selectedHabit?.heatmap ||
     (selectedHabit?.lastCompletedDate
